@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reskilling for the AI Economy - Part 2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin: -20px -20px 40px -20px;
+        }
+        
+        .header h1 {
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header .subtitle {
+            font-size: 1.3em;
+            font-style: italic;
+            opacity: 0.9;
+        }
+        
+        .author-info {
+            background: #f8f9fa;
+            padding: 20px;
+            border-left: 5px solid #667eea;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .toc {
+            background: #e8f4f8;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        
+        .toc h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        
+        .toc ul {
+            list-style: none;
+        }
+        
+        .toc li {
+            padding: 8px 0;
+            border-bottom: 1px dotted #bdc3c7;
+            font-size: 1.1em;
+        }
+        
+        .toc li:last-child {
+            border-bottom: none;
+        }
+        
+        .chapter {
+            margin: 50px 0;
+            padding: 30px;
+            background: #fefefe;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .chapter-header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .chapter-number {
+            font-size: 1.2em;
+            opacity: 0.8;
+            margin-bottom: 5px;
+        }
+        
+        .chapter-title {
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            color: #2c3e50;
+            margin: 35px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        .subsection-title {
+            font-size: 1.4em;
+            color: #34495e;
+            margin: 25px 0 15px 0;
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            border-left: 5px solid #e67e22;
+        }
+        
+        .stat-box {
+            background: #e8f5e8;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #27ae60;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .case-study {
+            background: #f0f8ff;
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .case-study-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2980b9;
+            margin-bottom: 15px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .chart-title {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .progress-bar {
+            background: #ecf0f1;
+            height: 30px;
+            border-radius: 15px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .key-points {
+            background: #fff3cd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 5px solid #ffc107;
+        }
+        
+        .key-points h4 {
+            color: #856404;
+            margin-bottom: 10px;
+        }
+        
+        .key-points ul {
+            margin-left: 20px;
+        }
+        
+        .key-points li {
+            margin: 8px 0;
+        }
+        
+        .visual-divider {
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 40px 0;
+            border-radius: 2px;
+        }
+        
+        .infographic {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .infographic-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .infographic-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .citation {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2.2em;
+            }
+            
+            .chapter-title {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Reskilling for the AI Economy</h1>
+            <div class="subtitle">How Organizations and Individuals Can Thrive Through Learning, Unlearning, and Relearning</div>
+        </div>
+        
+        <div class="author-info">
+            <strong>Author:</strong> Avontade PDS assisted by AI<br>
+            <strong>Publication Year:</strong> 2025<br>
+            <strong>Edition:</strong> Updated and Expanded - Part 2
+        </div>
+        
+        <div class="toc">
+            <h2>📚 Table of Contents - Part 2</h2>
+            <ul>
+                <li><strong>Foreword</strong></li>
+                <li><strong>Chapter 5:</strong> Organizational Reskilling - Building AI-Ready Workforces</li>
+                <li><strong>Chapter 6:</strong> Public-Private Partnerships - Collaborative Approaches to Workforce Transformation</li>
+                <li><strong>Chapter 7:</strong> Financing Workforce Transformation - Innovative Funding Models</li>
+                <li><strong>Chapter 8:</strong> Technology-Enhanced Learning - Tools for Reskilling Programs</li>
+            </ul>
+        </div>
+
+        <div class="chapter">
+            <h2 class="section-title">🌟 Foreword</h2>
+            
+            <div class="highlight-box">
+                <strong>The AI Revolution is Here:</strong> The world of work is undergoing its most profound transformation since the Industrial Revolution. Artificial intelligence has moved from science fiction to daily professional reality.
+            </div>
+
+            <div class="infographic">
+                <h3>AI Impact on the Workforce</h3>
+                <div class="infographic-grid">
+                    <div class="infographic-item">
+                        <div class="infographic-number">56%</div>
+                        <div>Wage Premium for AI Skills (Up from 25%)</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div class="infographic-number">66%</div>
+                        <div>Faster Rate of Skills Change in AI-Exposed Jobs</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div class="infographic-number">30%</div>
+                        <div>Of Work Hours Could Be Automated by 2030</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div class="infographic-number">12M</div>
+                        <div>Occupational Transitions Needed by 2030</div>
+                    </div>
+                </div>
+            </div>
+
+            <p>This transformation brings both unprecedented opportunities and significant challenges. While headlines often focus on fears of job displacement, the reality emerging from the latest research is far more nuanced and, ultimately, more optimistic. The 2025 PwC Global AI Jobs Barometer reveals that job numbers and wages are actually growing in virtually every AI-exposed occupation, including those most susceptible to automation.</p>
+
+            <div class="stat-box">
+                <div class="stat-number">20-50M</div>
+                <div>New Jobs Could Be Created Globally by 2030 Through AI</div>
+            </div>
+
+            <p>However, this optimistic outlook comes with a crucial caveat: the benefits of AI transformation are not automatically distributed. They accrue to those who are prepared, skilled, and adaptable. The same research shows that skills in AI-exposed jobs are changing 66% faster than they were just a year ago. This acceleration means that the traditional approach to career development—acquiring skills once and relying on them for decades—is no longer sufficient.</p>
+
+            <div class="key-points">
+                <h4>🎯 Key Transformation Challenges</h4>
+                <ul>
+                    <li>Workers in lower-wage jobs are up to 14 times more likely to need occupational changes</li>
+                    <li>Women are 1.5 times more likely than men to need to move into new occupations</li>
+                    <li>Geographic and demographic disparities in access to reskilling opportunities</li>
+                    <li>Need for continuous adaptation rather than one-time training</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="visual-divider"></div>
+
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 5</div>
+                <div class="chapter-title">🏢 Organizational Reskilling<br>Building AI-Ready Workforces</div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🚀 Amazon's $700M Commitment</div>
+                <p>Amazon's investment to upskill 100,000 employees by 2025 represents one of the most ambitious corporate reskilling efforts ever undertaken, focusing on transitioning workers from roles at risk of automation to more technical positions.</p>
+            </div>
+
+            <h3 class="section-title">📊 The Strategic Imperative for Organizational Reskilling</h3>
+
+            <div class="chart-container">
+                <div class="chart-title">Revenue Growth by AI Adoption Level</div>
+                <div style="margin: 20px 0;">
+                    <div style="margin: 10px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>High AI Adoption</span>
+                            <span>3x Higher Growth</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;">300% Growth</div>
+                        </div>
+                    </div>
+                    <div style="margin: 10px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Medium AI Adoption</span>
+                            <span>150% Growth</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%;">150% Growth</div>
+                        </div>
+                    </div>
+                    <div style="margin: 10px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Low AI Adoption</span>
+                            <span>100% Baseline</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 33%;">100% Baseline</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Organizations that approach reskilling strategically gain significant competitive advantages in the AI economy. Research shows that industries with higher AI adoption rates experience three times higher growth in revenue per employee compared to those with lower adoption rates. However, realizing these benefits requires more than just implementing AI technology—it requires developing organizational capabilities to use AI effectively.</p>
+
+            <h3 class="subsection-title">🎯 Strategic Value of Reskilling</h3>
+            <div class="key-points">
+                <h4>Benefits Beyond Immediate Productivity Gains</h4>
+                <ul>
+                    <li><strong>Cultural Transformation:</strong> Building stronger cultures of learning and adaptation</li>
+                    <li><strong>Employee Retention:</strong> Reducing turnover costs and preserving institutional knowledge</li>
+                    <li><strong>Change Advocacy:</strong> Creating internal champions for AI adoption</li>
+                    <li><strong>Trust Building:</strong> Demonstrating commitment to employee development during transitions</li>
+                </ul>
+            </div>
+
+            <h3 class="section-title">🏆 Learning from Successful Reskilling Programs</h3>
+
+            <div class="case-study">
+                <div class="case-study-title">🎓 American Diesel Training Centers (ADTC)</div>
+                <div class="infographic-grid" style="background: none; color: #2c3e50;">
+                    <div style="text-align: center; background: #e8f5e8; padding: 15px; border-radius: 8px;">
+                        <div style="font-size: 2em; font-weight: bold; color: #27ae60;">100%</div>
+                        <div>Graduation Rate</div>
+                    </div>
+                    <div style="text-align: center; background: #e8f5e8; padding: 15px; border-radius: 8px;">
+                        <div style="font-size: 2em; font-weight: bold; color: #27ae60;">92%</div>
+                        <div>Job Placement Rate</div>
+                    </div>
+                    <div style="text-align: center; background: #e8f5e8; padding: 15px; border-radius: 8px;">
+                        <div style="font-size: 2em; font-weight: bold; color: #27ae60;">60%</div>
+                        <div>Median Income Increase</div>
+                    </div>
+                </div>
+                <p><strong>Key Innovation:</strong> Career Impact Bond model eliminates upfront costs, with investors repaid based on employment outcomes.</p>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🌐 Cisco Networking Academy (NetAcad)</div>
+                <ul>
+                    <li><strong>Global Reach:</strong> Partners with institutions in 191 countries</li>
+                    <li><strong>Scale:</strong> Over 24 million learners gained technical skills</li>
+                    <li><strong>Focus Areas:</strong> AI, data science, networking, cybersecurity</li>
+                    <li><strong>Model:</strong> Free IT training through public-private partnerships</li>
+                </ul>
+            </div>
+
+            <h3 class="subsection-title">📋 Common Success Principles</h3>
+            <div class="highlight-box">
+                <strong>What Makes Reskilling Programs Successful:</strong>
+                <ul>
+                    <li>Focus on practical, immediately applicable skills</li>
+                    <li>Comprehensive support addressing career transition challenges</li>
+                    <li>Direct employer engagement in program design and funding</li>
+                    <li>Innovative approaches to remove accessibility barriers</li>
+                    <li>Success measurement based on real-world outcomes</li>
+                </ul>
+            </div>
+
+            <h3 class="section-title">🛠️ Designing Comprehensive Organizational Reskilling Programs</h3>
+
+            <div class="infographic">
+                <h3>Four-Component Framework</h3>
+                <div class="infographic-grid">
+                    <div class="infographic-item">
+                        <div style="font-size: 3em; margin-bottom: 10px;">📊</div>
+                        <div><strong>Assessment & Planning</strong><br>Evaluate current capabilities and future needs</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🎯</div>
+                        <div><strong>Skill Development</strong><br>Technical AI, Enhanced Human, Hybrid Collaboration</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 3em; margin-bottom: 10px;">⚡</div>
+                        <div><strong>Practical Application</strong><br>Pilot projects, rotations, innovation challenges</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 3em; margin-bottom: 10px;">🚀</div>
+                        <div><strong>Career Pathways</strong><br>Define new roles and advancement opportunities</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subsection-title">🎯 Three Categories of AI-Relevant Skills</h3>
+            <div class="key-points">
+                <h4>Essential Skill Categories</h4>
+                <ul>
+                    <li><strong>Technical AI Skills:</strong> Job-specific AI tool proficiency</li>
+                    <li><strong>Enhanced Human Skills:</strong> Creative problem-solving, strategic thinking, emotional intelligence</li>
+                    <li><strong>Hybrid Human-AI Collaboration:</strong> Effective partnership with AI systems</li>
+                </ul>
+            </div>
+
+            <h3 class="section-title">🏗️ Building Organizational Cultures That Support AI Transformation</h3>
+
+            <div class="highlight-box">
+                <strong>Psychological Safety is Fundamental:</strong>
+                Employees must feel comfortable acknowledging limitations, asking questions, and experimenting without fear of judgment or negative consequences.
+            </div>
+
+            <h3 class="subsection-title">🛡️ Creating Psychological Safety</h3>
+            <ul>
+                <li><strong>Leadership Modeling:</strong> Leaders demonstrate learning behaviors and celebrate intelligent failures</li>
+                <li><strong>Transparent Communication:</strong> Clear explanation of AI strategy and workforce implications</li>
+                <li><strong>Communities of Practice:</strong> Peer support networks for sharing experiences</li>
+                <li><strong>Aligned Recognition:</strong> Reward systems supporting reskilling goals</li>
+            </ul>
+
+            <h3 class="section-title">⚠️ Overcoming Common Implementation Challenges</h3>
+
+            <div class="chart-container">
+                <div class="chart-title">Common Reskilling Challenges & Solutions</div>
+                <div style="text-align: left; margin: 20px 0;">
+                    <div style="margin: 15px 0; padding: 15px; background: #fff3cd; border-left: 5px solid #ffc107; border-radius: 5px;">
+                        <strong>🕒 Time & Resource Constraints</strong><br>
+                        <em>Solution:</em> Realistic planning, creative learning integration, organizational commitment
+                    </div>
+                    <div style="margin: 15px 0; padding: 15px; background: #f8d7da; border-left: 5px solid #dc3545; border-radius: 5px;">
+                        <strong>🚫 Resistance to Change</strong><br>
+                        <em>Solution:</em> Clear communication, employee involvement, early wins demonstration
+                    </div>
+                    <div style="margin: 15px 0; padding: 15px; background: #d1ecf1; border-left: 5px solid #17a2b8; border-radius: 5px;">
+                        <strong>💻 Technical Infrastructure Limitations</strong><br>
+                        <em>Solution:</em> Technology investment, technical support provision
+                    </div>
+                    <div style="margin: 15px 0; padding: 15px; background: #d4edda; border-left: 5px solid #28a745; border-radius: 5px;">
+                        <strong>📏 Skills Assessment Challenges</strong><br>
+                        <em>Solution:</em> Practical application focus, iterative assessment refinement
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="section-title">💰 Measuring Return on Investment in Reskilling</h3>
+
+            <div class="infographic">
+                <h3>ROI Measurement Framework</h3>
+                <div class="infographic-grid">
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">💵</div>
+                        <div><strong>Direct Financial</strong><br>Reduced hiring costs, improved productivity</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🔄</div>
+                        <div><strong>Indirect Financial</strong><br>Enhanced innovation, customer satisfaction</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">😊</div>
+                        <div><strong>Employee Engagement</strong><br>Satisfaction, confidence, retention</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🏆</div>
+                        <div><strong>Competitive Advantage</strong><br>Market position, implementation speed</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="visual-divider"></div>
+
+        <div class="chapter">
+            <div class="chapter-header">
+                <div class="chapter-number">Chapter 6</div>
+                <div class="chapter-title">🤝 Public-Private Partnerships<br>Collaborative Approaches to Workforce Transformation</div>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🇸🇬 Singapore's MyCareersFuture Platform</div>
+                <p>Singapore's comprehensive SkillsFuture initiative uses AI to connect citizens with employment opportunities through "job fit scores" and provides personalized recommendations for career development and reskilling opportunities.</p>
+                <div class="key-points">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>AI-powered job matching with "job fit scores"</li>
+                        <li>Big data prediction of future skill requirements</li>
+                        <li>Government funding for continuous learning</li>
+                        <li>Educational institution partnerships</li>
+                        <li>Employer collaboration for relevant training</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="section-title">🌍 The Imperative for Multi-Stakeholder Collaboration</h3>
+
+            <div class="infographic">
+                <h3>Why Collaboration is Essential</h3>
+                <div class="infographic-grid">
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🏛️</div>
+                        <div><strong>Government</strong><br>Policy authority, public resources, coordination</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🎓</div>
+                        <div><strong>Education</strong><br>Pedagogical expertise, infrastructure, credentials</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🏢</div>
+                        <div><strong>Private Sector</strong><br>Technical knowledge, resources, employment pathways</div>
+                    </div>
+                    <div class="infographic-item">
+                        <div style="font-size: 2.5em; margin-bottom: 10px;">🤝</div>
+                        <div><strong>Civil Society</strong><br>Community connections, advocacy, implementation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <strong>The Urgency Factor:</strong> AI transformation timeline is compressed compared to previous technological transitions. Traditional workforce development approaches that unfold over decades are inadequate for changes happening within years or months.
+            </div>
+
+            <h3 class="section-title">🏛️ Government Leadership in AI Workforce Transformation</h3>
+
+            <h3 class="subsection-title">📊 Data-Driven Workforce Planning</h3>
+            <div class="key-points">
+                <h4>Government Unique Capabilities</h4>
+                <ul>
+                    <li>Collect and analyze labor market data at scale</li>
+                    <li>Identify emerging trends and skill needs</li>
+                    <li>Coordinate responses across multiple sectors</li>
+                    <li>Develop early warning systems for workforce challenges</li>
+                </ul>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🇺🇸 Texas House Bill 8</div>
+                <p><strong>Innovation:</strong> Shifts from enrollment-based to performance-based funding for educational institutions, encouraging curriculum updates in partnership with industry and focusing on employment outcomes.</p>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🇮🇪 Ireland's Apprenticeship Expansion</div>
+                <p><strong>Achievement:</strong> Expanded apprenticeship programs from 27 to over 70 across diverse sectors, demonstrating how governments can scale successful workforce development models.</p>
+            </div>
+
+            <div class="case-study">
+                <div class="case-study-title">🇩🇪 Germany's Dual Vocational Training System</div>
+                <p><strong>Scale:</strong> Serves approximately 330 recognized occupations, combining theoretical education with practical training through close collaboration between educational institutions, employers, and government agencies.</p>
+            </div>
+
+            <h3 class="section-title">🎓 Educational Institution Innovation and Adaptation</h3>
+
+            <div class="chart-container">
+                <div class="chart-title">Educational Innovation Trends</div>
+                <div style="margin: 20px 0;">
+                    <div style="margin: 15px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Prefer Online/Hybrid Learning</span>
+                            <span>70% of Students</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;">70%</div>
+                        </div>
+                    </div>
+                    <div style="margin: 15px 0;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>India's Academic Bank of Credits</span>
+                            <span>30M Students Registered</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 100%;">30M Students</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="subs
