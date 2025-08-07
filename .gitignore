@@ -1,0 +1,36 @@
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Build output
+_site/
+dist/
+build/
+out/
+
+# Dependencies
+node_modules/
+vendor/
+
+# Temporary files
+*.log
+*.tmp
+.cache/
+.temp/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Generated files
+*.generated.*
+generated/
