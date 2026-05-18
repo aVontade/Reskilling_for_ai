@@ -22,10 +22,19 @@ Curious how ready you and your organization are for the AI economy?
 
 Answer 12 quick questions and get:
 - Your **Trust Score** out of 60 — personalized, actionable
-- A **band rating** (AI Ready / Cautious Adopter / Curious But Stuck / Paralyzed)
+- A **band rating** (AI Ready ✅ / Cautious Adopter / Curious But Stuck / Paralyzed)
 - Recommended next steps based on your results
 
-No email required. Your data is anonymized and used only for industry benchmarking.
+---
+
+## 📥 Download
+
+| Format | Size | Link |
+|--------|------|------|
+| 📄 PDF | ~310 KB | [Download PDF](Reskilling_for_the_AI_Economy.pdf) |
+| 📚 EPUB (e-book) | ~10 KB | [Download EPUB](Reskilling_for_the_AI_Economy.epub) |
+| 🌐 Read Online (Part 1) | — | [Part 1 →](Part-1/index.html) |
+| 🌐 Read Online (Part 2) | — | [Part 2 →](Part-2/index.html) |
 
 ---
 
@@ -33,8 +42,10 @@ No email required. Your data is anonymized and used only for industry benchmarki
 
 | Part | Content | Format |
 |------|---------|--------|
-| **Part 1** | Foreword + Chapters 1–4 — Foundation & Individual Strategies | [HTML](Part-1/index.html) · [Markdown](reference/reskilling_ai_book_markdown_Part%201.md) |
-| **Part 2** | Chapters 5–6 — Organizational & Systemic Change | [HTML](Part-2/index.html) · [Markdown](reference/reskilling_ai_book_markdown_Part%202.md) |
+| **Part 1** | Foreword + Chapters 1–4 — Foundation & Individual Strategies | [HTML](Part-1/index.html) |
+| **Part 2** | Chapters 5–6 — Organizational & Systemic Change | [HTML](Part-2/index.html) |
+| **Part 3** | Coming Soon | [Preview](Part-3/index.html) |
+| **Part 4** | Coming Soon | [Preview](Part-4/index.html) |
 
 ### Chapter Overview
 
@@ -60,11 +71,13 @@ No email required. Your data is anonymized and used only for industry benchmarki
 
 - [Part 1 — HTML](Part-1/index.html) (styled, readable)
 - [Part 2 — HTML](Part-2/index.html)
-- [Full Combined Markdown](reference/)
 
-### Download
+### Download for Offline Reading
 
-Clone the repo to read offline:
+- [PDF](Reskilling_for_the_AI_Economy.pdf) — print-ready, A4 formatted
+- [EPUB](Reskilling_for_the_AI_Economy.epub) — e-book, import to Kindle, Apple Books, Google Play Books
+
+Clone the repo:
 ```bash
 git clone https://github.com/aVontade/Reskilling_for_ai.git
 ```
